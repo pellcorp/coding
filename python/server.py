@@ -45,7 +45,7 @@ class HttpRequestHandler(SimpleHTTPRequestHandler):
 if __name__ == "__main__":
     signal.signal(signal.SIGTERM, handle_signal)
 
-    httpServer = HTTPServer(('0.0.0.0', 8080), HttpRequestHandler)
+    httpServer = HTTPServer(('127.0.0.1', 8080), HttpRequestHandler)
 
     print("CTRL-C to Exit.")
     httpServer.serve_forever()
