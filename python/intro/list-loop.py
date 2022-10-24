@@ -1,5 +1,4 @@
 
-
 names = ['jason', 'thomas', 'zachary', 'ella', 'clair', 'lucy']
 
 for name in names:
