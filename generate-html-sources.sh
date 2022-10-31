@@ -4,6 +4,7 @@ CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd -P)
 
 pushd $CURRENT_DIR > /dev/null
 
+find docs -name "*.py.html" -exec rm {} \;
 find docs -name "index.html" -exec rm {} \;
 
 files=$(find . -name "*.py" | sort)
@@ -24,6 +25,7 @@ pushd docs/python > /dev/null
 dirs=$(find . -name "index.html" -exec dirname {} \; | sort | uniq)
 
 echo "<html><body><ul>" > index.html
+echo "<a href=\"..\">Back</a>" > index.html
 for dir in $dirs; do
   echo "<html><body>" > $dir/index.html
   echo "<a href=\"..\">Back</a>" >> $dir/index.html
