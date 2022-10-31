@@ -13,12 +13,13 @@ for file in $files; do
   basename=$(basename $file)
   name=${basename}.html
 
-  echo "Writing: docs/$dirname/$name"
   mkdir -p docs/$dirname
   echo '<html><body><pre>' > "docs/$dirname/$name"
   cat $file >> "docs/$dirname/$name"
   echo '</pre></body></html>' >> "docs/$dirname/$name"
-  echo "<li><a href=\"$name\">$basename</a></li>" >> docs/$dirname/index.html
+
+  #echo "Writing $basename to docs/$dirname/index.html"
+  echo "<li>XXXXXX<a href=\"$name\">$basename</a></li>" >> docs/$dirname/index.html
 done
 
 pushd docs/python > /dev/null
@@ -30,7 +31,7 @@ for dir in $dirs; do
   echo "<html><body>" > $dir/index.html
   echo "<a href=\"..\">Back</a>" >> $dir/index.html
   echo "<ul>" >> $dir/index.html
-  files=$(find $dir -type f)
+  files=$(find $dir -type f | sort)
   for file in $files; do
     if [ "$(basename $file)" != "index.html" ]; then
       echo "<li><a href=\"$(basename $file)\">$(basename $file .html)</a></li>" >> $dir/index.html
