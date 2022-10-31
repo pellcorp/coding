@@ -18,8 +18,7 @@ for file in $files; do
   cat $file >> "docs/$dirname/$name"
   echo '</pre></body></html>' >> "docs/$dirname/$name"
 
-  #echo "Writing $basename to docs/$dirname/index.html"
-  echo "<li>XXXXXX<a href=\"$name\">$basename</a></li>" >> docs/$dirname/index.html
+  echo "<li><a href=\"$name\">$basename</a></li>" >> docs/$dirname/index.html
 done
 
 pushd docs/python > /dev/null
@@ -50,6 +49,14 @@ for dir in $dirs; do
   echo "</ul></body></html>" >> $dir/index.html
 
   echo "<li><a href=\"$dir\">$(basename $dir)</a></li>" >> index.html
+done
+
+files=$(find . -maxdepth 1 -type f | sort)
+for file in $files; do
+  extension="${file##*.}"
+  if [ "$(basename $file)" != "index.html" ] && [ "$extension" != "py" ]; then
+    echo "<li><a href=\"$(basename $file)\">$(basename $file .html)</a></li>" >> index.html
+  fi
 done
 echo "</ul></body></html>" >> index.html
 popd > /dev/null
