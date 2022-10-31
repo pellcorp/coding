@@ -70,6 +70,4 @@ echo "</ul></body></html>" >> docs/index.html
 
 echo "<html><body><ul>" > index.html
 echo "<li><a href=\"docs\">docs</a></li>" >> index.html
-echo "<li><a href=\"python\">python</a></li>" >> index.html
-echo "<li><a href=\"static\">static</a></li>" >> index.html
 echo "</ul></body></html>" >> index.html
