@@ -10,8 +10,18 @@ find docs -name "index.html" -exec rm {} \;
 dirs=$(find python -type d | sort)
 for dir in $dirs; do
   mkdir -p docs/$dir
-  echo "<html><body><ul>" > docs/$dir/index.html
-  echo "<a href=\"..\">Back</a>" > docs/$dir/index.html
+  echo "<html><body>" > docs/$dir/index.html
+  echo "<a href=\"..\">Back</a>" >> docs/$dir/index.html
+  echo "<ul>" >> docs/$dir/index.html
+
+  base_dir=$(basename $dir)
+  if [ "$base_dir" = "$dir" ]; then
+    sub_dirs=$(find python -mindepth 1 -type d | sort)
+    for sub_dir in $sub_dirs; do
+      base_dir=$(basename $sub_dir)
+      echo "<li><a href=\"$base_dir\">$base_dir</a></li>" >> docs/$dir/index.html
+    done
+  fi
 
   files=$(find $dir -maxdepth 1 -type f | sort)
   for file in $files; do
