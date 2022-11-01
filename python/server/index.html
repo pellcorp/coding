@@ -1,8 +1,56 @@
-<a href="..">Back</a>
-<li><a href="../../../python/python/server/cat.jpg">basename</a></li>
-<li><a href="7-list-loop.py.html">cat.jpg</a></li>
-<li><a href="../../../python/python/server/dog.jpg">basename</a></li>
-<li><a href="7-list-loop.py.html">dog.jpg</a></li>
-<li><a href="../../../python/python/server/index.html">basename</a></li>
-<li><a href="7-list-loop.py.html">index.html</a></li>
-<li><a href="server.py.html">server.py</a></li>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <title>Cat Bible Quotes</title>
+
+    <script type="application/javascript">
+        function loadQuote() {
+            var quote = document.getElementById("quote")
+
+            var xmlhttp = new XMLHttpRequest()
+            xmlhttp.responseType = 'text';
+            xmlhttp.onload = function() {
+                var response = this.response
+                if (response != undefined) {
+                    quote.style.display = 'block'
+                    quote.innerHTML = this.responseText
+                }
+            };
+
+            xmlhttp.open("GET", "/quote", true);
+            xmlhttp.timeout = 10000
+            xmlhttp.send();
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: black;
+            background-image: url("cat.jpg")
+        }
+
+        #quote {
+            position: absolute;
+            font-family: cursive;
+            font-size: 50px;
+            left: 200px;
+            width: 500px;
+            top: 150px;
+            padding: 10px;
+            color: yellow;
+        }
+    </style>
+</head>
+
+<body onLoad="loadQuote()">
+
+<div id="quote">
+    In the world you will have tribulation. But take heart; I have overcome the world.
+</div>
+
+</body>
+</html>
+</ul></body></html>
+
