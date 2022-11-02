@@ -1,0 +1,59 @@
+#
+# boolean conditions
+#
+im_a_boolean = True
+
+if im_a_boolean:
+    print("I am a boolean and I am True")
+else:
+    print("I am a boolean and I am False")
+
+#
+# string conditions
+#
+im_a_string = 'Hello World'
+
+if im_a_string == 'Hello World':
+    print("I am a string and I am equal to 'Hello World'")
+else:
+    print("I am a string and I am not equal to 'Hello World'")
+
+if 'Hello' in im_a_string:
+    print("I am a string and I have the 'Hello'")
+else:
+    print("I am a string and I no not have the 'Hello'")
+
+#
+# whole number (int) conditions
+#
+im_a_int_number = 3
+
+if im_a_int_number >= 4:
+    print("Im an int and I am equal to or bigger than 4")
+elif im_a_int_number > 3:
+    print("I am a int and I am larger than 3")
+else:
+    print("I am a int and I am smaller than 3")
+
+#
+# Decimal (float) conditions
+#
+im_a_float = 2.9
+
+if im_a_float >= 3.3:
+    print("I am a float and I am equal to or bigger than 3.3")
+elif im_a_float > 3.0:
+    print("I am a float and I am bigger than 3.0")
+else:
+    print("I am a float and I am smaller than 3.0")
+
+#
+# list conditions
+#
+names = ['jason', 'thomas', 'zachary', 'ella', 'clair', 'lucy']
+
+if 'jason' in names:
+    print("Im a list and I have the word 'jason'")
+
+if 'thor' not in names:
+    print("Im a list and I do not have the word 'thor'")

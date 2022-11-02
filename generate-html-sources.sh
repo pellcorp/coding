@@ -10,7 +10,7 @@ find docs -name "index.html" -exec rm {} \;
 dirs=$(find python -type d | sort)
 for dir in $dirs; do
   mkdir -p docs/$dir
-  echo "<html><body>" > docs/$dir/index.html
+  echo "<html><title>$dir</title><body>" > docs/$dir/index.html
   echo "<a href=\"..\">Back</a>" >> docs/$dir/index.html
   echo "<ul>" >> docs/$dir/index.html
 
@@ -30,7 +30,7 @@ for dir in $dirs; do
     if [ "$basename" != "index.html" ]; then
       if [ "$extension" = "py" ] || [ "$extension" = "bat" ]; then
         name=${basename}.html
-        echo '<html><body><pre>' > docs/$dir/$name
+        echo "<html><title>$basename</title><body><pre>" > docs/$dir/$name
         cat $file >> docs/$dir/$name
         echo '</pre></body></html>' >> docs/$dir/$name
         echo "<li><a href=\"$name\">$basename</a></li>" >> docs/$dir/index.html
@@ -46,7 +46,7 @@ while IFS=  read -r -d $'\0'; do
     files+=("$REPLY")
 done < <(find docs -name "*.pdf" -print0)
 
-echo "<html><body>" > docs/index.html
+echo "<html><title>docs</title><body>" > docs/index.html
 
 echo "<a href=\"..\">Back</a>" >> docs/index.html
 echo "<ul>" >> docs/index.html
