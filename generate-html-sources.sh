@@ -26,10 +26,12 @@ for dir in $dirs; do
   files=$(find $dir -maxdepth 1 -type f | sort)
   for file in $files; do
     basename=$(basename $file)
+    basename=$(echo $basename | sed 's/^\([0-9]*\)\-//g')
     extension="${basename##*.}"
     if [ "$basename" != "index.html" ]; then
       if [ "$extension" = "py" ] || [ "$extension" = "bat" ]; then
         name=${basename}.html
+
         echo "<html><title>$basename</title><body><pre>" > docs/$dir/$name
         cat $file >> docs/$dir/$name
         echo '</pre></body></html>' >> docs/$dir/$name
