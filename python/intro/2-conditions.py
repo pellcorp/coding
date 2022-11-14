@@ -1,14 +1,4 @@
 #
-# boolean conditions
-#
-im_a_boolean = True
-
-if im_a_boolean:
-    print("I am a boolean and I am True")
-else:
-    print("I am a boolean and I am False")
-
-#
 # string conditions
 #
 im_a_string = 'Hello World'
@@ -57,3 +47,14 @@ if 'jason' in names:
 
 if 'thor' not in names:
     print("Im a list and I do not have the word 'thor'")
+
+#
+# boolean conditions
+#
+im_a_boolean = True
+
+if im_a_boolean:
+    print("I am a boolean and I am True")
+else:
+    print("I am a boolean and I am False")
+
