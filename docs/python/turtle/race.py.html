@@ -1,29 +1,31 @@
 <html><title>race.py</title><body><pre>
-# required modules
 from turtle import *
 from random import randint
 
-# classic shape turtle
-speed(100)
-penup()
-goto(-140, 140)
+screen = Screen()
+screen.setup(400, 360)
+
+speed(0)
+penup() # lift pen so next statement does NOT draw
+goto(-140, 140) # goto absolute position in the window
 
 # racing track
 
 for step in range(15):
-    write(step, align = 'center')
-    right(90)
+    write(step, align = 'center') # write the number between 1 and 15
+    right(90) # turn right 90 degrees
 
     for num in range(8):
-        penup()
-        forward(10)
-        pendown()
+        penup() # lift pen so next statement does NOT draw
+        forward(10) # forward 10 pixels
+        pendown() # put pen down so next statement does draw
         forward(10)
 
-    penup()
-    backward(160)
-    left(90)
-    forward(20)
+    penup() # lift pen so next statement does NOT draw
+    backward(160) # backwards 160 pixels
+    left(90) # left 90 degrees
+    forward(20) # forwards 20 pixels
+hideturtle()
 
 # first player details
 player_1 = Turtle()
@@ -71,4 +73,16 @@ for turn in range(100):
     player_2.forward(randint(1, 5))
     player_3.forward(randint(1, 5))
     player_4.forward(randint(1, 5))
+
+color('red')
+goto(0, -100)
+write('Finished', align = 'center', font=('Arial', 40, 'normal'))
+
+# print(player_1.ycor())
+
+# just wait around till the user closes the window
+penup()
+goto(0, 0)
+while True:
+    right(1)
 </pre></body></html>
