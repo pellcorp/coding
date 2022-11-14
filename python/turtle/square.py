@@ -2,6 +2,7 @@ from turtle import *
 
 screen = Screen()
 screen.setup(400, 400)
+screen.title("Its a Square")
 
 ttl = Turtle()  
 ttl.color('blue', 'red')
