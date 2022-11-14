@@ -48,9 +48,7 @@ while IFS=  read -r -d $'\0'; do
     files+=("$REPLY")
 done < <(find docs -name "*.pdf" -print0)
 
-echo "<html><title>docs</title><body>" > docs/index.html
-
-echo "<a href=\"..\">Back</a>" >> docs/index.html
+echo "<html><title>Python Coding</title><body>" > docs/index.html
 echo "<ul>" >> docs/index.html
 echo "<li><a href=\"python\">python</a></li>" >> docs/index.html
 
