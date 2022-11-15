@@ -11,7 +11,7 @@ dirs=$(find python -type d | sort)
 for dir in $dirs; do
   mkdir -p docs/$dir
   echo "<html><title>$dir</title><body>" > docs/$dir/index.html
-  echo "<a href=\"..\">Back</a>" >> docs/$dir/index.html
+  echo "<a href=\"../index.html\">Back</a>" >> docs/$dir/index.html
   echo "<ul>" >> docs/$dir/index.html
 
   base_dir=$(basename $dir)
@@ -19,7 +19,7 @@ for dir in $dirs; do
     sub_dirs=$(find python -mindepth 1 -type d | sort)
     for sub_dir in $sub_dirs; do
       base_dir=$(basename $sub_dir)
-      echo "<li><a href=\"$base_dir\">$base_dir</a></li>" >> docs/$dir/index.html
+      echo "<li><a href=\"$base_dir/index.html\">$base_dir</a></li>" >> docs/$dir/index.html
     done
   fi
 
@@ -48,10 +48,14 @@ while IFS=  read -r -d $'\0'; do
     files+=("$REPLY")
 done < <(find docs -name "*.pdf" -print0)
 
-echo "<html><title>Python Coding</title><body>" > docs/index.html
+echo "<html><title>coding.pellcorp.com</title><body>" > docs/index.html
+echo "<h2>Code</h2>" >> docs/index.html
 echo "<ul>" >> docs/index.html
-echo "<li><a href=\"python\">python</a></li>" >> docs/index.html
+echo "<li><a href=\"python/index.html\">python</a></li>" >> docs/index.html
+echo "</ul>" >> docs/index.html
 
+echo "<h2>Docs</h2>" >> docs/index.html
+echo "<ul>" >> docs/index.html
 for file in "${files[@]}"; do
   basename=$(basename "$file")
   echo "<li><a href=\"$basename\">$basename</a></li>" >> docs/index.html
