@@ -24,7 +24,6 @@ right_pad.color("black")
 right_pad.shapesize(stretch_wid=6, stretch_len=2)
 right_pad.penup()
 right_pad.goto(400, 0)
-ee
 
 # Ball of circle shape
 hit_ball = turtle.Turtle()

@@ -69,18 +69,22 @@ player_4.pendown()
 
 # turtles run at random speeds
 for turn in range(100):
-    player_1.forward(randint(1, 5))
-    player_2.forward(randint(1, 5))
-    player_3.forward(randint(1, 5))
-    player_4.forward(randint(1, 5))
+    player_2_move = randint(1, 5)
+    player_1.forward(player_2_move)
+    player_2_move = randint(1, 5)
+    player_2.forward(player_2_move)
+    player_3_move = randint(1, 5)
+    player_3.forward(player_3_move)
+    player_4_move = randint(1, 5)
+    player_4.forward(player_4_move)
 
 color('red')
 goto(0, -100)
-write('Finished', align = 'center', font=('Arial', 40, 'normal'))
+write('Finished', align = 'center', font = ('Arial', 40, 'normal'))
 
 # print(player_1.ycor())
 
-# just wait around till the user closes the window
+# this is just here to keep the window open, don't edit past here
 penup()
 goto(0, 0)
 while True:

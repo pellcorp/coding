@@ -33,7 +33,7 @@ for dir in $dirs; do
         name=${basename}.html
 
         echo "<html><title>$basename</title><body><pre>" > docs/$dir/$name
-        cat $file >> docs/$dir/$name
+        cat $file | sed 's/</\&lt;/g' >> docs/$dir/$name
         echo '</pre></body></html>' >> docs/$dir/$name
         echo "<li><a href=\"$name\">$basename</a></li>" >> docs/$dir/index.html
       else
