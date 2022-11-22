@@ -39,7 +39,7 @@ sketch.color("blue")
 sketch.penup()
 sketch.hideturtle()
 sketch.goto(0, 260)
-sketch.write("Left_player : {} Right_player: {}".format(left_player, right_player), align="center", font=("Courier", 24, "normal"))
+sketch.write("Left Player : {} Right Player: {}".format(left_player, right_player), align="center", font=("Courier", 24, "normal"))
 
 
 def lef_paddle_up():
@@ -68,7 +68,7 @@ def right_paddle_down():
 
 def display_scores():
     sketch.clear()
-    sketch.write("Left_player : {} Right_player: {}".format(left_player, right_player), align="center", font=("Courier", 24, "normal"))
+    sketch.write("Left Player : {} Right Player: {}".format(left_player, right_player), align="center", font=("Courier", 24, "normal"))
 
 
 sc.listen()
