@@ -80,8 +80,8 @@ winning_xpos = 150
 # turtles run at random speeds
 while True:
     # randomly moves between 1 and 5 pixels
-    player_2_move = randint(1, 5)
-    player_1.forward(player_2_move)
+    player_1_move = randint(1, 5)
+    player_1.forward(player_1_move)
 
     # randomly moves between 1 and 5 pixels
     player_2_move = randint(1, 5)

@@ -24,15 +24,6 @@ coordinates.goto(0, 120)
 coordinates.write("X: 0; Y: 0", align="center", font=("Courier", 24, "normal"))
 
 
-paddle = turtle.Turtle()
-paddle.speed(0)
-paddle.shape("square")
-paddle.color("black")
-paddle.shapesize(stretch_wid=6, stretch_len=2)
-paddle.penup()
-paddle.goto(150, 0)
-
-
 def up():
     y = ball.ycor()
     y += 1
