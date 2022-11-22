@@ -69,15 +69,23 @@ player_4.goto(-160, 10)
 player_4.pendown()
 
 # turtles run at random speeds
-for turn in range(100):
+while True:
+    # randomly moves between 1 and 5 pixels
     player_2_move = randint(1, 5)
     player_1.forward(player_2_move)
+    
+    # randomly moves between 1 and 5 pixels
     player_2_move = randint(1, 5)
     player_2.forward(player_2_move)
+    
+    # randomly moves between 1 and 5 pixels
     player_3_move = randint(1, 5)
     player_3.forward(player_3_move)
+
+    # randomly moves between 1 and 5 pixels
     player_4_move = randint(1, 5)
     player_4.forward(player_4_move)
+    
 
 color('red')
 goto(0, -100)
@@ -85,9 +93,5 @@ write('Finished', align = 'center', font = ('Arial', 40, 'normal'))
 
 # print(player_1.ycor())
 
-# this is just here to keep the window open, don't edit past here
-penup()
-goto(0, 0)
-while True:
-    right(1)
+screen.exitonclick()
 </pre></body></html>

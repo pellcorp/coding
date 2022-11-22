@@ -1,0 +1,94 @@
+<html><title>single-player-pong.py</title><body><pre>
+import turtle
+
+
+sc = turtle.Screen()
+sc.title("Single Player Pong Game")
+sc.bgcolor("white")
+sc.setup(width=1000, height=600)
+
+paddle = turtle.Turtle()
+paddle.speed(0)
+paddle.shape("square")
+paddle.color("black")
+paddle.shapesize(stretch_wid=6, stretch_len=2)
+paddle.penup()
+paddle.goto(400, 0)
+
+ball = turtle.Turtle()
+ball.speed(40)
+ball.shape("circle")
+ball.color("blue")
+ball.penup()
+ball.goto(0, 0)
+ball.dx = 5
+ball.dy = -5
+
+score = 0
+
+sketch = turtle.Turtle()
+sketch.speed(0)
+sketch.color("blue")
+sketch.penup()
+sketch.hideturtle()
+sketch.goto(0, 260)
+sketch.write("Score: 0", align="center", font=("Courier", 24, "normal"))
+
+
+def paddle_up():
+    y = paddle.ycor()
+    y += 20
+    paddle.sety(y)
+
+
+def paddle_down():
+    y = paddle.ycor()
+    y -= 20
+    paddle.sety(y)
+
+
+def display_score():
+    sketch.clear()
+    sketch.write("Score: {}".format(score), align="center", font=("Courier", 24, "normal"))
+
+
+sc.listen()
+sc.onkeypress(paddle_up, "Up")
+sc.onkeypress(paddle_down, "Down")
+
+while True:
+    sc.update()
+
+    ball.setx(ball.xcor() + ball.dx)
+    ball.sety(ball.ycor() + ball.dy)
+
+    # ball bounces off top
+    if ball.ycor() > 280:
+        ball.sety(280)
+        ball.dy *= -1
+
+    # ball bounces off bottom
+    if ball.ycor() &lt; -280:
+        ball.sety(-280)
+        ball.dy *= -1
+
+    # player missed the ball
+    if ball.xcor() > 500:
+        # goto middle of screen
+        ball.goto(0, 0)
+        ball.dy *= -1
+        score -= 1
+        display_score()
+
+    # Paddle ball collision
+    if (ball.xcor() > 360 and ball.xcor() &lt; 370) and (ball.ycor() &lt; (paddle.ycor() + 50) and ball.ycor() > (paddle.ycor() - 50)):
+        ball.setx(360)
+        ball.dx*=-1
+        score += 1
+        display_score()
+
+    # bounces off the left wall
+    if ball.xcor() &lt; -500:
+        ball.setx(-500)
+        ball.dx*=-1
+</pre></body></html>

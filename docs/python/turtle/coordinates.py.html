@@ -1,0 +1,80 @@
+<html><title>coordinates.py</title><body><pre>
+import turtle
+
+
+sc = turtle.Screen()
+sc.title("Coordinates")
+sc.bgcolor("white")
+sc.setup(width=360, height=360)
+
+ball = turtle.Turtle()
+ball.speed(40)
+ball.shape("turtle")
+ball.color("red")
+ball.penup()
+ball.goto(0, 0)
+ball.dx = 5
+ball.dy = -5
+
+coordinates = turtle.Turtle()
+coordinates.speed(0)
+coordinates.color("blue")
+coordinates.penup()
+coordinates.hideturtle()
+coordinates.goto(0, 120)
+coordinates.write("X: 0; Y: 0", align="center", font=("Courier", 24, "normal"))
+
+
+paddle = turtle.Turtle()
+paddle.speed(0)
+paddle.shape("square")
+paddle.color("black")
+paddle.shapesize(stretch_wid=6, stretch_len=2)
+paddle.penup()
+paddle.goto(150, 0)
+
+
+def up():
+    y = ball.ycor()
+    y += 1
+    ball.setheading(90)
+    ball.sety(y)
+    display_coordinates()
+
+
+def down():
+    y = ball.ycor()
+    y -= 1
+    ball.sety(y)
+    ball.setheading(270)
+    display_coordinates()
+
+
+def left():
+    x = ball.xcor()
+    x -= 1
+    ball.setheading(180)
+    ball.setx(x)
+    display_coordinates()
+
+
+def right():
+    x = ball.xcor()
+    x += 1
+    ball.setheading(0)
+    ball.setx(x)
+    display_coordinates()
+
+
+def display_coordinates():
+    coordinates.clear()
+    coordinates.write("X: {}; Y: {}".format(ball.xcor(), ball.ycor()), align="center", font=("Courier", 24, "normal"))
+
+
+sc.listen()
+sc.onkeypress(up, "Up")
+sc.onkeypress(down, "Down")
+sc.onkeypress(left, "Left")
+sc.onkeypress(right, "Right")
+sc.exitonclick()
+</pre></body></html>
