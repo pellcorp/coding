@@ -108,7 +108,4 @@ while True:
         print_winner(player_4)
         break;
 
-color('red')
-goto(0, -100)
-
 screen.exitonclick()

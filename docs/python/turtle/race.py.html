@@ -75,6 +75,9 @@ player_4.penup()
 player_4.goto(-160, 10)
 player_4.pendown()
 
+# this is appromixately the finish line
+winning_xpos = 150
+
 # turtles run at random speeds
 while True:
     # randomly moves between 1 and 5 pixels
@@ -93,21 +96,18 @@ while True:
     player_4_move = randint(1, 5)
     player_4.forward(player_4_move)
 
-    if player_1.xcor() > 150:
+    if player_1.xcor() > winning_xpos:
         print_winner(player_1)
         break;
-    elif player_2.xcor() > 150:
+    elif player_2.xcor() > winning_xpos:
         print_winner(player_2)
         break;
-    elif player_3.xcor() > 150:
+    elif player_3.xcor() > winning_xpos:
         print_winner(player_3)
         break;
-    elif player_4.xcor() > 150:
+    elif player_4.xcor() > winning_xpos:
         print_winner(player_4)
         break;
-
-color('red')
-goto(0, -100)
 
 screen.exitonclick()
 </pre></body></html>
