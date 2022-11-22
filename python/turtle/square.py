@@ -28,9 +28,4 @@ ttl.right(90) # turn right 90 degrees
 
 ttl.end_fill()
 
-
-# this is just here to keep the window open, don't edit past here
-ttl.penup()
-ttl.goto(0, 0)
-while True:
-    ttl.right(1)
+screen.exitonclick()
