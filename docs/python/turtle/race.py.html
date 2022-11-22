@@ -10,8 +10,15 @@ speed(0)
 penup() # lift pen so next statement does NOT draw
 goto(-140, 140) # goto absolute position in the window
 
-# racing track
 
+def print_winner(winner):
+    fg, bg = winner.color()
+    color('red')
+    goto(0, -100)
+    write(f"{fg.capitalize()} Finished First", align = 'center', font = ('Arial', 20, 'normal'))
+
+
+# racing track
 for step in range(15):
     write(step, align = 'center') # write the number between 1 and 15
     right(90) # turn right 90 degrees
@@ -69,11 +76,11 @@ player_4.goto(-160, 10)
 player_4.pendown()
 
 # turtles run at random speeds
-for turn in range(100):
+while True:
     # randomly moves between 1 and 5 pixels
     player_2_move = randint(1, 5)
     player_1.forward(player_2_move)
-    
+
     # randomly moves between 1 and 5 pixels
     player_2_move = randint(1, 5)
     player_2.forward(player_2_move)
@@ -85,13 +92,22 @@ for turn in range(100):
     # randomly moves between 1 and 5 pixels
     player_4_move = randint(1, 5)
     player_4.forward(player_4_move)
-    
+
+    if player_1.xcor() > 150:
+        print_winner(player_1)
+        break;
+    elif player_2.xcor() > 150:
+        print_winner(player_2)
+        break;
+    elif player_3.xcor() > 150:
+        print_winner(player_3)
+        break;
+    elif player_4.xcor() > 150:
+        print_winner(player_4)
+        break;
 
 color('red')
 goto(0, -100)
-write('Finished', align = 'center', font = ('Arial', 40, 'normal'))
-
-# print(player_1.ycor())
 
 screen.exitonclick()
 </pre></body></html>
